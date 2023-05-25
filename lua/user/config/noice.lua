@@ -105,7 +105,7 @@ M.config = function()
 	-- end, { silent = true, expr = true })
 
 	require("notify").setup({
-		timeout = 3000,
+		timeout = 1000,
 		icons = {
 			ERROR = " ",
 			WARN = " ",
@@ -113,7 +113,7 @@ M.config = function()
 			DEBUG = " ",
 			TRACE = " ",
 		},
-		background_colour = "#000000",
+		-- background_colour = "#000000",
 	})
 end
 
