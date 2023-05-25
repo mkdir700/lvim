@@ -39,3 +39,6 @@ luac.out
 *.x86_64
 *.hex
 
+.luarc.json
+.DS_Store
+packer_compiled.lua
