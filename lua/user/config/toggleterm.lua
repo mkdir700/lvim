@@ -38,37 +38,10 @@ M.config = function()
 				local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
 				vim.api.nvim_set_current_win(picked_window_id)
 			end, { desc = "Pick a window in ToggleTerm" })
-			-- <C-l> 清空终端
-			vim.api.nvim_set_keymap(
-				"t",
-				"<C-l>",
-				'<Cmd>lua vim.api.nvim_buf_call(0, function() vim.cmd(\'TermExec cmd="clear"\') vim.fn.feedkeys("a") end)<CR>',
-				{ noremap = true, silent = true }
-			)
 		end
 	end
 
 	vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-
-	-- TODO: 临时方案，用于快速加载当前项目的虚拟环境（仅支持poetry）
-	vim.keymap.set(
-		{ "n", "t", "i" },
-		"<M-4>",
-		"<CMD>TermExec cmd='source $(poetry env info -p)/bin/activate' direction=horizontal<CR>"
-	)
-
-	-- vim.api.nvim_create_user_command("ToggleTermSendCurrentLine", function(opts)
-	-- 	send_term("single_line", false, opts.args)
-	-- end, { nargs = "?", force = true })
-	-- vim.api.nvim_create_user_command("ToggleTermSendVisualSelection", function(opts)
-	-- 	send_term("visual_selection", false, opts.args)
-	-- end, { range = true, nargs = "?", force = true })
-	-- vim.api.nvim_create_user_command("ToggleTermSendVisualLines", function(opts)
-	-- 	send_term("visual_lines", false, opts.args)
-	-- end, { range = true, nargs = "?", force = true })
-	-- vim.api.nvim_create_user_command("ToggleTermSendCurrentLineNoTrimWs", function(opts)
-	-- 	send_term("single_line", false, opts.args)
-	-- end, { nargs = "?", force = false })
 end
 
 return M
