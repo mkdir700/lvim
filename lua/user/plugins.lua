@@ -223,13 +223,14 @@ M.config = function()
 		--------------
 		-- 语言服务 --
 		--------------
-		{
-			"j-hui/fidget.nvim",
-			event = "BufRead",
-			config = function()
-				require("user.config.fidget").config()
-			end,
-		},
+		-- 在右下角动画加载语言服务的进度
+		-- {
+		-- 	"j-hui/fidget.nvim",
+		-- 	event = "BufRead",
+		-- 	config = function()
+		-- 		require("user.config.fidget").config()
+		-- 	end,
+		-- },
 		{
 			"ray-x/lsp_signature.nvim",
 			config = function()
@@ -260,24 +261,6 @@ M.config = function()
 			cmd = { "Neogen" },
 			module = "neogen",
 			disable = false,
-		},
-		-- 切换 python 虚拟环境
-		{
-			"AckslD/swenv.nvim",
-			config = function()
-				require("swenv").setup({
-					-- Should return a list of tables with a `name` and a `path` entry each.
-					-- Gets the argument `venvs_path` set below.
-					-- By default just lists the entries in `venvs_path`.
-					get_venvs = function(venvs_path)
-						return require("swenv.api").get_venvs(venvs_path)
-					end,
-					-- Path passed to `get_venvs`.
-					venvs_path = vim.fn.expand("~/venvs"),
-					-- Something to do after setting an environment
-					post_set_venv = nil,
-				})
-			end,
 		},
 		-- Python 清除未使用的库
 		{
@@ -513,7 +496,6 @@ M.config = function()
 		{ "tpope/vim-fugitive" },
 		{ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },
 		{ "f-person/git-blame.nvim" },
-		{ "felipec/vim-sanegx" }, -- FIXME
 		-- 统计 coding 时长
 		{ "wakatime/vim-wakatime" },
 		-- 自动切换输入法
