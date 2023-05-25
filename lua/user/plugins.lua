@@ -99,12 +99,12 @@ M.config = function()
 			end,
 		},
 		-- 展示变量被实现的次数和不引用的次数
-		{
-			"VidocqH/lsp-lens.nvim",
-			config = function()
-				require("lsp-lens").setup({})
-			end,
-		},
+		-- {
+		-- 	"VidocqH/lsp-lens.nvim",
+		-- 	config = function()
+		-- 		require("lsp-lens").setup({})
+		-- 	end,
+		-- },
 		--------------
 		-- 全文搜索 --
 		--------------
