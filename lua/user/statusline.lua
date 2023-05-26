@@ -3,14 +3,14 @@ local M = {}
 M.config = function()
 	lvim.builtin.lualine.options = {
 		globalstatus = true,
-		component_separators = { left = "", right = "" },
-		section_separators = { left = " ", right = " " },
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
 	}
 
 	local components = require("lvim.core.lualine.components")
 	lvim.builtin.lualine.sections.lualine_a = {
 		{
-			" ",
+			"",
 			type = "stl",
 		},
 	}
