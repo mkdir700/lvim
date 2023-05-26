@@ -414,20 +414,20 @@ M.config = function()
 			tag = "v1.0.0",
 			config = function()
 				require("github-theme").setup({
-					-- dark/dimmed/dark_default/dark_colorblind/light/light_default/light_colorblind
-					theme_style = "dimmed",
-					function_style = "italic",
-					keyword_style = "italic",
-					sidebars = { "qf", "vista_kind", "terminal", "packer" },
 					options = {
 						inverse = { -- Inverse highlight for different types
 							match_paren = true,
 							visual = true,
 							search = true,
 						},
+						styles = {
+							keyword_style = "italic",
+							function_style = "italic",
+							sidebars = { "qf", "vista_kind", "terminal", "packer" },
+						},
 					},
 				})
-				vim.cmd("colorscheme github_dimmed")
+				vim.cmd("colorscheme github_dark_dimmed")
 			end,
 			cond = function()
 				local _time = os.date("*t")
