@@ -131,7 +131,6 @@ M.config = function()
 				require("user.config.spectre").config()
 			end,
 		},
-		{ "ggandor/flit.nvim" },
 		--------------
 		-- 快速编辑 --
 		--------------
