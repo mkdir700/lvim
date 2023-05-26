@@ -31,6 +31,7 @@ M.config = function()
 			-- 只在打开非 lazygit 终端时设置映射
 			-- 在正常模式下 <esc> toggle 终端
 			vim.keymap.set("n", "<esc>", "<CMD>ToggleTerm<CR>", opts)
+			vim.keymap.set("n", "q", "<CMD>ToggleTerm<CR>", opts)
 			vim.keymap.set("t", "<esc>", "<C-\\><C-n>", opts)
 			vim.keymap.set("t", "jk", "<C-\\><C-n>", opts)
 			vim.keymap.set("t", "<C-S-u>", "<C-\\><C-n><C-u>", opts)
