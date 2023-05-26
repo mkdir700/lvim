@@ -2,11 +2,11 @@ local M = {}
 
 M.config = function()
 	require("monokai-pro").setup({
-		transparent_background = true,
+		transparent_background = false,
 		terminal_colors = true,
 		devicons = true, -- highlight the icons of `nvim-web-devicons`
 		italic_comments = true,
-		filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+		filter = "classic", -- classic | octagon | pro | machine | ristretto | spectrum
 		-- Enable this will disable filter option
 		day_night = {
 			enable = false, -- turn off by default
@@ -15,11 +15,11 @@ M.config = function()
 		},
 		inc_search = "background", -- underline | background
 		background_clear = {
-			-- "float_win",
-			-- "toggleterm",
-			-- "telescope",
-			-- "which-key",
-			-- "renamer",
+			"float_win",
+			"toggleterm",
+			"telescope",
+			"which-key",
+			"renamer",
 		}, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree"
 		plugins = {
 			bufferline = {
@@ -32,14 +32,7 @@ M.config = function()
 			},
 		},
 		--- @param c Colorscheme
-		override = function(c) end,
-	})
-
-	-- TODO: 待定，不确定是否有配置被覆盖
-	require("telescope").setup({
-		defaults = {
-			borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
-		},
+		-- override = function(c) end,
 	})
 end
 
