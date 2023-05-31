@@ -134,7 +134,6 @@ M.config = function()
 		k = { "y<ESC>:Telescope keymaps default_text=<c-r>0<CR>", "Keymaps" },
 		C = { "y<ESC>:Telescope commands default_text=<c-r>0<CR>", "Commands" },
 	}
-	lvim.builtin.which_key.mappings.s.n = { ":Telescope notify<CR>", "Notify" }
 
 	--------------
 	-- 快速编辑(Edit) --
@@ -147,21 +146,14 @@ M.config = function()
 	map("n", "<C-S-J>", "<CMD>m .+1<CR><Cmd>normal ==<CR>")
 	map("i", "<C-S-K>", "<CMD>m .-2<CR><Cmd>normal ==<CR>")
 	map("n", "<C-S-K>", "<CMD>m .-2<CR><Cmd>normal ==<CR>")
-	map("i", "<C-k>", "repeat('<Del>', strchars(getline('.')) - getcurpos()[2] + 1)", { expr = true })
-	map("c", "<C-k>", "repeat('<Del>', strchars(getcmdline()) - getcmdpos() + 1)", { expr = true })
-	-- 向右边跳转一个单词
-	-- map("n", "<C-l>", "<CMD>call C_Right()<CR><Right>")
-	map("c", "<C-l>", "<C-Right>")
-	map("i", "<C-z>", "<CMD>undo<CR>")
-	map("i", "<c-s-z>", "<cmd>redo<cr>")
+	map("c", "<C-f>", "<Right>")
+	map("c", "<C-b>", "<Left>")
 	map("v", "L", "$")
 	map("v", "H", "^")
 	map("o", "L", "$")
 	map("o", "H", "^")
 	-- 输入模式下 Shift + Enter 在当前行下面插入新行
 	map("i", "<S-Enter>", "<Esc>o")
-	-- Copilot
-	-- map("i", "<S-Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 	--------------
 	-- 普通模式 --
@@ -190,11 +182,10 @@ M.config = function()
 	-- 这将强制在当前行上方或下方放置
 	map("n", "]p", "<Plug>(YankyPutIndentAfterLinewise)")
 	map("n", "[p", "<Plug>(YankyPutIndentBeforeLinewise)")
-	map("n", "]P", "<Plug>(YankyPutIndentAfterLinewise)")
-	map("n", "[P", "<Plug>(YankyPutIndentBeforeLinewise)")
 	-- 在当前行的上行/下行粘贴，并重新缩进
 	map("n", "=p", "<Plug>(YankyPutAfterFilter)")
 	map("n", "=P", "<Plug>(YankyPutBeforeFilter)")
+	-- 循环选择剪切版
 	vim.keymap.set("n", "<M-n>", "<Plug>(YankyCycleForward)")
 	vim.keymap.set("n", "<M-p>", "<Plug>(YankyCycleBackward)")
 	map("i", "<C-v>", "<C-r>+")
@@ -203,18 +194,6 @@ M.config = function()
 	lvim.builtin.which_key.mappings["O"] = { "<CMD>put! =@+<CR>", "Paste Clipboard to Previous Line" }
 	lvim.builtin.which_key.mappings["by"] = { "<CMD>%y +<CR>", "Yank Whole Buffer to Clipboard" }
 	lvim.builtin.which_key.mappings["bp"] = { '<CMD>%d<CR>"+P', "Patse Clipboard to Whole Buffer" }
-	-- map("v", "=p", '"0p')
-	-- map("n", "=p", '"0p')
-	-- map("n", "=P", '"0P')
-	-- map("n", "=o", "<CMD>put =@0<CR>")
-	-- map("n", "=O", "<CMD>put! =@0<CR>")
-	-- map("v", "<Space>y", '"+y')
-	-- map("v", "<Space>p", '"+p')
-	-- lvim.builtin.which_key.mappings["<Space>"] = { "<CMD>let @+ = @0<CR>", "Copy Register 0 to Clipboard" }
-	-- lvim.builtin.which_key.mappings["y"] = { '"+y', "Yank to Clipboard" }
-	-- lvim.builtin.which_key.mappings["Y"] = { '"+y$', "Yank All Right to Clipboard" }
-	-- lvim.builtin.which_key.mappings["p"] = { '"+p', "Paste Clipboard After Cursor" }
-	-- lvim.builtin.which_key.mappings["P"] = { '"+P', "Paste Clipboard Before Cursor" }
 
 	--------------
 	-- 语言服务 --
@@ -296,7 +275,7 @@ M.config = function()
 				luasnip.expand_or_jump()
 			elseif lccm.jumpable(1) then
 				luasnip.jump(1)
-			elseif lccm.check_backspace() then
+			elseif lccm.has_words_before() then
 				fallback()
 			else
 				fallback()
@@ -398,23 +377,12 @@ M.config = function()
 	lvim.builtin.which_key.vmappings.a = {
 		name = "Application",
 	}
-	lvim.builtin.which_key.mappings["E"] = { "<CMD>NvimTreeFocus<CR>", "Explorer Focus" }
 
 	--------------
 	-- LSP 按键 --
 	--------------
 	-- 对 lunarvim 的 lsp 按键的补充
 	map("n", "gt", ":lua vim.lsp.buf.type_definition()<cr>", { desc = "Goto Type Definition" })
-	-- map("n", "gd", ":lua vim.lsp.buf.definition()<cr>", { desc = "Goto Definition" })
-	-- map("n", "gD", ":lua vim.lsp.buf.declaration()<cr>", { desc = "Goto Declaration" })
-	-- map("n", "gI", ":lua vim.lsp.buf.implementation()<cr>", { desc = "Goto Implementation" })
-	-- map("n", "gw", ":lua vim.lsp.buf.document_symbol()<cr>", { desc = "Goto Workspace Symbol" })
-	-- map("n", "gw", ":lua vim.lsp.buf.workspace_symbol()<cr>", { desc = "Goto Workspace Symbol" })
-	-- map("n", "gr", ":lua vim.lsp.buf.references()<cr>", { desc = "Goto References" })
-	-- map("n", "K", ":lua vim.lsp.buf.hover()<cr>", { desc = "Hover" })
-	-- map("n", "<c-k>", ":lua vim.lsp.buf.signature_help()<cr>", { desc = "Signature Help" })
-	-- map("n", "<leader>af", ":lua vim.lsp.buf.code_action()<cr>")
-	-- map("n", "<leader>rn", ":lua vim.lsp.buf.rename()<cr>")
 
 	--------------
 	-- 其他按键 --
@@ -439,16 +407,6 @@ M.config = function()
 	}
 
 	vim.cmd([[
-function! C_Right() abort
-  let left_text = getline('.')[getcurpos()[2]-1:]
-  if left_text =~ '^\W*\s+$'
-    normal $ge
-  elseif left_text =~ '^\W*$'
-    normal $
-  else
-    normal e
-  endif
-endf
 function! SmartClose() abort
   if &bt ==# 'nofile' || &bt ==# 'quickfix'
     quit
