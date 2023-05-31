@@ -609,6 +609,9 @@ M.config = function()
 				require("user.config.lab").config()
 			end,
 		},
+		{
+			"christoomey/vim-tmux-navigator",
+		},
 	}
 end
 
