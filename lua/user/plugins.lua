@@ -294,12 +294,6 @@ M.config = function()
 		-- 界面元素 --
 		--------------
 		{
-			"kosayoda/nvim-lightbulb",
-			config = function()
-				require("nvim-lightbulb").setup({ autocmd = { enabled = true } })
-			end,
-		},
-		{
 			"petertriho/nvim-scrollbar",
 			config = function()
 				require("user.config.scrollbar").config()

@@ -22,21 +22,22 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
 	{ key = "v", action = "vsplit" },
 }
 
+
 lvim.lsp.installer.setup.ensure_installed = {
-	"sumneko_lua",
-	"tsserver",
-	"tailwindcss",
-	"bashls",
-	"cssls",
-	"dockerls",
-	"emmet_ls",
-	"html",
-	"jsonls",
-	"pyright",
-	"rust_analyzer",
-	"taplo",
-	"yamlls",
-	"gopls",
+    "sumneko_lua",
+    "tsserver",
+    "tailwindcss",
+    "bashls",
+    "cssls",
+    "dockerls",
+    "emmet_ls",
+    "html",
+    "jsonls",
+    "pyright",
+    "rust_analyzer",
+    "taplo",
+    "yamlls",
+    "gopls",
 }
 
 ----------------------------------------
