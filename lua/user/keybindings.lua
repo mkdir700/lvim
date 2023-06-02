@@ -167,8 +167,6 @@ M.config = function()
 	-- plugin: nvim-treesitter-textobjects
 	-- plugin: vim-repeate
 	-- plugin: vim-surround
-	-- map("n", "S", "i<CR><Esc>")
-
 	--------------
 	-- 复制粘贴 --
 	----------------
@@ -361,8 +359,6 @@ M.config = function()
 	-- plugin: undotree
 	-- plugin: trouble.nvim
 	-- plugin: nvim-bqf
-	-- map("n", "<C-M-E>", "<CMD>NvimTreeFindFile<CR>")
-	-- map("n", "<C-S-U>", "<CMD>lua require('telescope').extensions.notify.notify()<CR>")
 	lvim.builtin.which_key.mappings["a"] = {
 		name = "Application",
 		o = { "<CMD>SymbolsOutline<CR>", "Outline" },
@@ -370,7 +366,6 @@ M.config = function()
 		u = { "<CMD>UndotreeToggle<CR>", "UndoTree" },
 		C = { "<CMD>Calc<CR>", "Calculator" },
 		i = { "<CMD>Autoflake --remove-all-unused-imports<CR>", "AutoFlake" },
-		c = { "<CMD>ChatGPT<CR>", "ChatGPT" },
 		d = { "<CMD>DiffviewOpen<CR>", "Diffview" },
 		g = { "<CMD>Glow<CR>", "Render Markdown" },
 	}
@@ -387,7 +382,6 @@ M.config = function()
 	--------------
 	-- 其他按键 --
 	--------------
-	-- map("n", "<C-k><C-s>", "<CMD>Telescope keymaps<CR>")
 	map("n", "<M-z>", "<CMD>let &wrap=!&wrap<CR>")
 	map("n", "<M-t>", "<CMD>TranslateW<CR>")
 	map("v", "<M-t>", ":TranslateW<CR>")
