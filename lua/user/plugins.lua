@@ -358,6 +358,7 @@ M.config = function()
 				require("user.config.trouble").config()
 			end,
 		},
+		-- 切换缓冲区
 		{
 			"kevinhwang91/nvim-bqf",
 			event = { "BufRead", "BufNew" },
