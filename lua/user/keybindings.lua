@@ -21,7 +21,7 @@ M.config = function()
 		"View Sessions",
 	}
 	lvim.builtin.which_key.mappings["S"] = {
-		name = "会话管理",
+		name = "Session",
 		l = { "<CMD>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
 		c = { "<CMD>lua require('persistence').load()<cr>", "Restore last session for current dir" },
 		q = { "<CMD>lua require('persistence').stop()<cr>", "Quit without saving session" },
@@ -333,7 +333,7 @@ M.config = function()
 	map("n", "<Tab>", "<CMD>wincmd w<CR>")
 	map("n", "<S-Tab>", "<CMD>wincmd p<CR>")
 	lvim.builtin.which_key.mappings["k"] = {
-		name = "文件操作",
+		name = "File",
 		n = { "<CMD>enew<CR>", "新建文件" },
 		o = { "<CMD>Telescope oldfiles<CR>", "老(最近)文件" },
 		f = { "<CMD>Telescope find_files<CR>", "查找当前目录下的文件" },
@@ -347,8 +347,8 @@ M.config = function()
 		},
 		-- u = { ":try | %bd | catch | endtry<CR>", "try" }
 	}
-	lvim.builtin.which_key.mappings["q"] = { "<CMD>call SmartClose()<CR>", "退出" }
-	lvim.builtin.which_key.mappings["Q"] = { "<CMD>qa<CR>", "直接退出" }
+	lvim.builtin.which_key.mappings["q"] = { "<CMD>call SmartClose()<CR>", "Quit" }
+	lvim.builtin.which_key.mappings["Q"] = { "<CMD>qa<CR>", "Close VIM" }
 
 	--------------
 	-- 界面元素 --
