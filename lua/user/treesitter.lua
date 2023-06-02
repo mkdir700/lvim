@@ -37,22 +37,22 @@ M.config = function()
 		goto_next_start = {
 			["]f"] = "@function.outer",
 			["]]"] = "@class.outer",
-			["]a"] = "@parameter.outer",
+			["]a"] = "@parameter.inner",
 		},
 		goto_next_end = {
 			["]F"] = "@function.outer",
 			["]["] = "@class.outer",
-			["]A"] = "@parameter.outer",
+			["]A"] = "@parameter.inner",
 		},
 		goto_previous_start = {
 			["[f"] = "@function.outer",
 			["[["] = "@class.outer",
-			["[a"] = "@parameter.outer",
+			["[a"] = "@parameter.inner",
 		},
 		goto_previous_end = {
 			["[F"] = "@function.outer",
 			["[]"] = "@class.outer",
-			["[A"] = "@parameter.outer",
+			["[A"] = "@parameter.inner",
 		},
 	}
 	lvim.builtin.treesitter.textobjects.swap = {
