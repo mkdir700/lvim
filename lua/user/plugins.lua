@@ -108,10 +108,11 @@ M.config = function()
 		--------------
 		-- 全文搜索 --
 		--------------
-		-- visual 下选中的部分用于快速搜索
 		{
-			"bronson/vim-visual-star-search",
-			keys = { { "v", "*" }, { "v", "#" }, { "v", "g*" }, { "v", "g#" } },
+			"kevinhwang91/nvim-hlslens",
+			setup = function()
+				require("hlslens").setup()
+			end,
 		},
 		{
 			"romainl/vim-cool",

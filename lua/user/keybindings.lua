@@ -113,8 +113,22 @@ M.config = function()
 	-- plugin: vim-cool
 	-- plugin: telescope-live-grep-raw.nvim
 	-- plugin: nvim-spectre
-	map("n", "n", "'Nn'[v:searchforward]", { expr = true })
-	map("n", "N", "'nN'[v:searchforward]", { expr = true })
+	map(
+		"n",
+		"n",
+		[[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+		{ noremap = true, silent = true }
+	)
+	map(
+		"n",
+		"N",
+		[[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+		{ noremap = true, silent = true }
+	)
+	map("n", "*", "*<Cmd>lua require('hlslens').start()<CR>", { noremap = true, silent = true })
+	map("n", "#", "#<Cmd>lua require('hlslens').start()<CR>", { noremap = true, silent = true })
+	map("n", "g*", "g*<Cmd>lua require('hlslens').start()<CR>", { noremap = true, silent = true })
+	map("n", "g#", "g#<Cmd>lua require('hlslens').start()<CR>", { noremap = true, silent = true })
 	map("n", "<M-l>", "<CMD>nohl<CR><C-l>")
 	map("c", "<M-W>", "\\<\\><Left><Left>")
 	map("c", "<M-r>", "\\v")
