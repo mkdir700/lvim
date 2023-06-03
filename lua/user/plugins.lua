@@ -534,6 +534,12 @@ M.config = function()
 				require("user.config.im-select").config()
 			end,
 		},
+		{
+			"mkdir700/im-select-osc.nvim",
+			setup = function()
+				require("im-select-osc").setup()
+			end,
+		},
 		-- 自动保存
 		{
 			"Pocco81/auto-save.nvim",
