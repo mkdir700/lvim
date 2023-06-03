@@ -535,9 +535,9 @@ M.config = function()
 			end,
 		},
 		{
-			"mkdir700/im-select-osc.nvim",
-			setup = function()
-				require("im-select-osc").setup()
+			"mkdir700/im-select-remote.nvim",
+			config = function()
+				require("im-select-remote").setup()
 			end,
 		},
 		-- 自动保存
