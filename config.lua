@@ -37,7 +37,6 @@ lvim.lsp.installer.setup.ensure_installed = {
     "rust_analyzer",
     "taplo",
     "yamlls",
-    "gopls",
 }
 
 ----------------------------------------
