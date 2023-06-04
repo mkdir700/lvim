@@ -169,9 +169,16 @@ M.config = function()
 		},
 		-- 用于从远程终端复制到本地
 		{
-			"ojroques/vim-oscyank",
+			"ojroques/nvim-osc52",
 			config = function()
-				lvim.builtin.which_key.vmappings["y"] = { ":OSCYankVisual<CR>", "Copy to clipboard(Remote)" }
+				lvim.builtin.which_key.vmappings["y"] = { require("osc52").copy_visual, "Copy to clipboard(Remote)" }
+				function copy()
+					if vim.v.event.operator == "y" and vim.v.event.regname == "+" then
+						require("osc52").copy_register("+")
+					end
+				end
+
+				vim.api.nvim_create_autocmd("TextYankPost", { callback = copy })
 			end,
 		},
 		--------------

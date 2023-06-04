@@ -25,7 +25,7 @@ M.config = function()
 		vim.g["loaded_" .. plugin] = 1
 	end
 
-  -- config.lsp.signature.enabled = false
+	-- config.lsp.signature.enabled = false
 	vim.opt.backup = true
 	vim.opt.backupdir = join_paths(get_cache_dir(), "backup")
 	vim.opt.swapfile = true
@@ -170,6 +170,19 @@ M.config = function()
 		vim.cmd([[NvuiOpacity 0.99]])
 	end
 
+	local function copy(lines, _)
+		require("osc52").copy(table.concat(lines, "\n"))
+	end
+
+	local function paste()
+		return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+	end
+
+	vim.g.clipboard = {
+		name = "osc52",
+		copy = { ["+"] = copy, ["*"] = copy },
+		paste = { ["+"] = paste, ["*"] = paste },
+	}
 end
 
 return M
