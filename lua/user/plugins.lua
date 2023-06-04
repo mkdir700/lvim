@@ -540,6 +540,14 @@ M.config = function()
 			config = function()
 				require("user.config.im-select").config()
 			end,
+			cond = function()
+				local result = os.execute("nc -z localhost " .. 23333)
+				-- 说明非本机，不需要切换输入法
+				if result == 1 then
+					return true
+				end
+				return false
+			end,
 		},
 		{
 			"mkdir700/im-select-remote.nvim",
