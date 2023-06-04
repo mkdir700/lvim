@@ -172,7 +172,7 @@ M.config = function()
 			"ojroques/nvim-osc52",
 			config = function()
 				lvim.builtin.which_key.vmappings["y"] = { require("osc52").copy_visual, "Copy to clipboard(Remote)" }
-				function copy()
+				local function copy()
 					if vim.v.event.operator == "y" and vim.v.event.regname == "+" then
 						require("osc52").copy_register("+")
 					end
