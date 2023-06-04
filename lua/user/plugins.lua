@@ -541,9 +541,8 @@ M.config = function()
 				require("user.config.im-select").config()
 			end,
 			cond = function()
-				local result = os.execute("nc -z localhost " .. 23333)
-				-- 说明非本机，不需要切换输入法
-				if result == 1 then
+				-- 判断是否配置了 ssh config，用于 im-select-remote.nvim
+				if vim.fn.system("cat ~/.ssh/config | grep 'Port 23333'") ~= "" then
 					return true
 				end
 				return false
