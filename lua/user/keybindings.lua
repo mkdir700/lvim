@@ -68,7 +68,7 @@ M.config = function()
 	-- plugin: vim-bookmarks
 	-- plugin: telescope-vim-bookmarks
 	-- HACK: terminal map: ctrl+i -> alt+shift+i
-	map("n", "<C-i>", "<C-i>", { silent = true })
+	map("n", "<C-i>", "<C-i>", { silent = true, noremap = true })
 	map("i", "<C-a>", "<C-[>I") -- 编辑状态下，快速移动至头部
 	map("i", "<C-e>", "<C-[>A") -- 编辑状态下，快速移动至尾部
 	map("n", "mm", "<Plug>BookmarkToggle", { noremap = false })
