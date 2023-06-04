@@ -538,14 +538,11 @@ M.config = function()
 		{
 			"keaising/im-select.nvim",
 			config = function()
-				require("user.config.im-select").config()
-			end,
-			cond = function()
 				-- 判断是否配置了 ssh config，用于 im-select-remote.nvim
 				if vim.fn.system("cat ~/.ssh/config | grep 'Port 23333'") ~= "" then
-					return true
+					return
 				end
-				return false
+				require("user.config.im-select").config()
 			end,
 		},
 		{
