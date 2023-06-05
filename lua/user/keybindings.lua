@@ -406,6 +406,12 @@ M.config = function()
 	lvim.builtin.which_key.mappings["h"] = nil
 	lvim.builtin.which_key.mappings["e"] = nil -- FIXME: 没有效果
 
+	local function packer_snapshot()
+		local snapshot_file = "~/.config/lvim/plugin/snapshot.json"
+		vim.cmd("PackerSnapshot " .. snapshot_file)
+	end
+	lvim.builtin.which_key.mappings.p.s = { packer_snapshot, "Packer Snapshot" }
+
 	--------------
 	-- 缓冲区按键 --
 	--------------
