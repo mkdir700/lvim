@@ -26,8 +26,8 @@ M.config = function()
 		},
 		-- 用于快速跳转到指定位置
 		{
-			"phaazon/hop.nvim",
-			cmd = "Hop*",
+			"FluxxField/hop-revived.nvim",
+			branch = "v2", -- optional but strongly recommended
 			config = function()
 				require("user.config.hop").config()
 			end,

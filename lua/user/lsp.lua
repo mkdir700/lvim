@@ -25,7 +25,7 @@ M.config = function()
 		{ filetype = { "cpp", "c", "objc", "objcpp" }, command = "clang-format" },
 		{ filetypes = { "go" }, command = "gofumpt" },
 		{ filetypes = { "python" }, command = "isort" },
-		{ filetypes = { "python" }, command = "black" },
+		{ filetypes = { "python" }, command = "black", extra_args = { "--preview" } },
 		{ filetypes = { "lua" }, command = "stylua" },
 		{ filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" }, command = "prettier" },
 		{ filetypes = { "html", "css", "markdown" }, command = "prettier" },
