@@ -5,6 +5,13 @@ M.config = function()
 		inject = {
 			cutoff_width = 2000,
 		},
+    models = {
+      {
+        name = "openai",
+        model = "gpt-3.5-turbo-16k",
+        params = nil,
+      }
+    },
 		shortcuts = {
 			{
 				name = "textify",
