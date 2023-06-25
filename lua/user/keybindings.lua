@@ -184,6 +184,7 @@ M.config = function()
 	--------------
 	-- 复制粘贴 --
 	----------------
+	lvim.keys.visual_mode["p"] = "P"
 	-- 复制后，光标的位置不会改变
 	vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
 	vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
