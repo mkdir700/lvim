@@ -658,6 +658,13 @@ M.config = function()
 		{
 			"christoomey/vim-tmux-navigator",
 		},
+    -- 在终端打开文件，在新的缓冲区中展示，而不是占用终端缓冲区
+		{
+			"willothy/flatten.nvim",
+			config = function()
+				require("user.config.flatten").config()
+			end,
+		},
 	}
 end
 
