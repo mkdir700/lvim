@@ -132,19 +132,19 @@ M.config = function()
 	end
 
 	vim.opt.guicursor = "n:block-blinkon10,i-ci:ver15-blinkon10,c:hor15-blinkon10,v-sm:block,ve:ver15,r-cr-o:hor10"
-	vim.opt.guifont = "NerdCodePro Font:h14"
+	vim.opt.guifont = "CaskaydiaCove Nerd Font Mono:h13"
 	if vim.g.neovide then
-		vim.g.neovide_cursor_animation_length = 0.01
-		vim.g.neovide_cursor_trail_length = 0.05
+		vim.g.neovide_cursor_animation_length = 0.1
+		vim.g.neovide_cursor_trail_length = 0.1
 		vim.g.neovide_cursor_antialiasing = true
 		vim.g.neovide_remember_window_size = true
 		vim.g.neovide_cursor_vfx_mode = "ripple"
 	end
 	if vim.g.nvui then
 		-- Configure nvui here
-		vim.cmd([[NvuiCmdFontFamily FiraCode Nerd Font]])
+		vim.cmd([[NvuiCmdFontFamily CaskaydiaCove Nerd Font Mono]])
 		vim.cmd([[set linespace=1]])
-		vim.cmd([[set guifont=FiraCode\ Nerd\ Font:h16]])
+		vim.cmd([[set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h14]])
 		vim.cmd([[NvuiPopupMenuDefaultIconFg white]])
 		vim.cmd([[NvuiCmdBg #1e2125]])
 		vim.cmd([[NvuiCmdFg #abb2bf]])
